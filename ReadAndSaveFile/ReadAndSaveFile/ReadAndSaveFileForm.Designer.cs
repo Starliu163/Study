@@ -162,6 +162,7 @@
             this.lblErrorContentColor.Name = "lblErrorContentColor";
             this.lblErrorContentColor.Size = new System.Drawing.Size(50, 12);
             this.lblErrorContentColor.TabIndex = 40;
+            this.lblErrorContentColor.Click += new System.EventHandler(this.lblErrorContentColor_Click);
             // 
             // lblDuplicateContentColor
             // 
