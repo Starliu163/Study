@@ -39,7 +39,7 @@ namespace ReadAndSaveFile
                 this.dgvDataTable.Columns.Add(btn);
                 this._isAddDGVButton = true;
             }
-   
+
         }
         private void ReadAndSaveFileForm_Load(object sender, EventArgs e)
         {
@@ -87,27 +87,38 @@ namespace ReadAndSaveFile
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                this._filePath = ofd.FileName;
 
-                if (Path.GetExtension(ofd.FileName).Equals(".csv"))
+                if (Path.GetExtension(ofd.FileName).Equals(".csv") || Path.GetExtension(ofd.FileName).Equals(".xlsx"))
                 {
-                    this._filePath = ofd.FileName;
+
+
                     if (this._cSVFileHelper.GetFileDataToDataTableAndCheckDataTable(this._filePath))
                     {
                         this.dgvDataTable.DataSource = this._cSVFileHelper.CsvContentDataTable;
                         //在末尾列添加一列按钮
                         this.AddGridViewColumnButton();
                         //this.dgvDataTable.RowHeightChanged
-                    }
-                    else
-                    {
-
-                    }
-
+                    };
                 }
-                else
+                else if (Path.GetExtension(ofd.FileName).Equals(".xls"))
                 {
-                    MessageBox.Show("请选择.csv格式的文件");
+                    if (this._cSVFileHelper.GetFileDataToDataTableAndCheckDataTable(this._filePath))
+                    {
+                        this.dgvDataTable.DataSource = this._cSVFileHelper.CsvContentDataTable;
+                        //在末尾列添加一列按钮
+                        this.AddGridViewColumnButton();
+                        //this.dgvDataTable.RowHeightChanged
+                    };
                 }
+                else if (Path.GetExtension(ofd.FileName).Equals(".xlsx"))
+                {
+
+                }
+                {
+
+                }
+
 
             }
 
@@ -948,6 +959,11 @@ namespace ReadAndSaveFile
         }
 
         private void lblErrorContentColor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDuplicateDataBaseData_Click(object sender, EventArgs e)
         {
 
         }

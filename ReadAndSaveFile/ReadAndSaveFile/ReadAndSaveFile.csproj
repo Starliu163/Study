@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="CSVFileHelper.cs" />
     <Compile Include="ErrorCellInformation.cs" />
+    <Compile Include="ExcelHelper.cs" />
     <Compile Include="ReadAndSaveFileException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

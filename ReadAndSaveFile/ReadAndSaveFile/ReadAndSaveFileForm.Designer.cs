@@ -63,7 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataTable.Location = new System.Drawing.Point(-1, 0);
+            this.dgvDataTable.Location = new System.Drawing.Point(12, 0);
             this.dgvDataTable.Name = "dgvDataTable";
             this.dgvDataTable.ReadOnly = true;
             this.dgvDataTable.RowHeadersWidth = 51;
@@ -134,16 +134,22 @@
             // 
             // lstvLog
             // 
+            this.lstvLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstvLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lstvLog.HideSelection = false;
-            this.lstvLog.Location = new System.Drawing.Point(574, 0);
+            this.lstvLog.Location = new System.Drawing.Point(589, 0);
             this.lstvLog.Name = "lstvLog";
-            this.lstvLog.Size = new System.Drawing.Size(214, 267);
+            this.lstvLog.Size = new System.Drawing.Size(199, 267);
             this.lstvLog.TabIndex = 30;
             this.lstvLog.UseCompatibleStateImageBehavior = false;
             this.lstvLog.SelectedIndexChanged += new System.EventHandler(this.lstvLog_SelectedIndexChanged);
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.lblErrorContentColor);
             this.flowLayoutPanel1.Controls.Add(this.lblDuplicateContentColor);
             this.flowLayoutPanel1.Controls.Add(this.lblDuplicateDataBaseDataColor);
@@ -207,15 +213,17 @@
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.Controls.Add(this.lblErrorContent);
             this.flowLayoutPanel2.Controls.Add(this.lblDuplicateContent);
             this.flowLayoutPanel2.Controls.Add(this.lblDuplicateDataBaseData);
             this.flowLayoutPanel2.Controls.Add(this.lblEmptyContent);
             this.flowLayoutPanel2.Controls.Add(this.lblDataTypeError);
             this.flowLayoutPanel2.Controls.Add(this.lblCharacterLengthError);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(574, 273);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(589, 273);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(160, 74);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(145, 87);
             this.flowLayoutPanel2.TabIndex = 32;
             // 
             // lblErrorContent
@@ -241,14 +249,15 @@
             this.lblDuplicateDataBaseData.AutoSize = true;
             this.lblDuplicateDataBaseData.Location = new System.Drawing.Point(3, 24);
             this.lblDuplicateDataBaseData.Name = "lblDuplicateDataBaseData";
-            this.lblDuplicateDataBaseData.Size = new System.Drawing.Size(149, 12);
+            this.lblDuplicateDataBaseData.Size = new System.Drawing.Size(119, 24);
             this.lblDuplicateDataBaseData.TabIndex = 2;
             this.lblDuplicateDataBaseData.Text = "Duplicate database data ";
+            this.lblDuplicateDataBaseData.Click += new System.EventHandler(this.lblDuplicateDataBaseData_Click);
             // 
             // lblEmptyContent
             // 
             this.lblEmptyContent.AutoSize = true;
-            this.lblEmptyContent.Location = new System.Drawing.Point(3, 36);
+            this.lblEmptyContent.Location = new System.Drawing.Point(3, 48);
             this.lblEmptyContent.Name = "lblEmptyContent";
             this.lblEmptyContent.Size = new System.Drawing.Size(83, 12);
             this.lblEmptyContent.TabIndex = 3;
@@ -257,7 +266,7 @@
             // lblDataTypeError
             // 
             this.lblDataTypeError.AutoSize = true;
-            this.lblDataTypeError.Location = new System.Drawing.Point(3, 48);
+            this.lblDataTypeError.Location = new System.Drawing.Point(3, 60);
             this.lblDataTypeError.Name = "lblDataTypeError";
             this.lblDataTypeError.Size = new System.Drawing.Size(113, 12);
             this.lblDataTypeError.TabIndex = 4;
@@ -266,7 +275,7 @@
             // lblCharacterLengthError
             // 
             this.lblCharacterLengthError.AutoSize = true;
-            this.lblCharacterLengthError.Location = new System.Drawing.Point(3, 60);
+            this.lblCharacterLengthError.Location = new System.Drawing.Point(3, 72);
             this.lblCharacterLengthError.Name = "lblCharacterLengthError";
             this.lblCharacterLengthError.Size = new System.Drawing.Size(125, 12);
             this.lblCharacterLengthError.TabIndex = 5;

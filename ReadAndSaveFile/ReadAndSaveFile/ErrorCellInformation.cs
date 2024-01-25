@@ -26,7 +26,7 @@ namespace ReadAndSaveFile
         /// <summary>
         /// Initialize this._errorColumn
         /// </summary>
-        public int ErrorColumn
+        public int ErrorColumn 
         {
             get
             {
