@@ -1,13 +1,11 @@
-﻿using DbBase;
-using ReadAndSaveCSVFile;
+﻿using ReadAndSaveCSVFile;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 namespace ReadAndSaveFile
 {
     public partial class ReadAndSaveFileForm : Form
@@ -16,6 +14,7 @@ namespace ReadAndSaveFile
         private string _filePath = string.Empty;
         //private string _connStr = string.Empty;
         private CSVFileHelper _cSVFileHelper = new CSVFileHelper();
+        private ExcelHelper _excelhelper = new ExcelHelper();
         private bool _isCheckPass = true;
         private string lstvlog = string.Empty;
         private bool _isAddDGVButton = false;
@@ -89,9 +88,8 @@ namespace ReadAndSaveFile
             {
                 this._filePath = ofd.FileName;
 
-                if (Path.GetExtension(ofd.FileName).Equals(".csv") || Path.GetExtension(ofd.FileName).Equals(".xlsx"))
+                if (Path.GetExtension(ofd.FileName).Equals(".csv"))
                 {
-
 
                     if (this._cSVFileHelper.GetFileDataToDataTableAndCheckDataTable(this._filePath))
                     {
@@ -100,30 +98,41 @@ namespace ReadAndSaveFile
                         this.AddGridViewColumnButton();
                         //this.dgvDataTable.RowHeightChanged
                     };
+
                 }
+
                 else if (Path.GetExtension(ofd.FileName).Equals(".xls"))
                 {
-                    if (this._cSVFileHelper.GetFileDataToDataTableAndCheckDataTable(this._filePath))
-                    {
-                        this.dgvDataTable.DataSource = this._cSVFileHelper.CsvContentDataTable;
-                        //在末尾列添加一列按钮
-                        this.AddGridViewColumnButton();
-                        //this.dgvDataTable.RowHeightChanged
-                    };
+
+
+
+                    this.dgvDataTable.DataSource = this._excelhelper.ReadExcelToDataTablet(this._filePath);
+                    //在末尾列添加一列按钮
+                    this.AddGridViewColumnButton();
+                    //this.dgvDataTable.RowHeightChanged
                 }
                 else if (Path.GetExtension(ofd.FileName).Equals(".xlsx"))
                 {
+                    this._excelhelper.ReadExcelToDataTablet(this._filePath);
+
+                    this.dgvDataTable.DataSource = this._excelhelper.ReadExcelToDataTablet(this._filePath).Clone();
+                    //在末尾列添加一列按钮
+                    //this.AddGridViewColumnButton();
+                    ////this.dgvDataTable.RowHeightChanged
+
 
                 }
-                {
-
-                }
-
 
             }
 
 
         }
+
+        private void ReadAndSaveFileForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
 
         /// <summary>
         /// Save file content data 
@@ -916,6 +925,83 @@ namespace ReadAndSaveFile
         #endregion
 
         private void btnValidate_Click(object sender, EventArgs e)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         {
             //string findDuplicateDataSql = "Exec sp_CheckStudentAdmissionInfoEmailIsExists @Email = @Email";
             //string findPossibleDuplicateDataSql = "Exec sp_CheckStudentAdmissionInfoDetailIsMatch @Name = @Name, @Age = @Age, @Sex = @Sex";

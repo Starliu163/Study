@@ -11,7 +11,7 @@ namespace ReadAndSaveFile
 {
     public class ExcelHelper
     {
-        public DataSet ReadExcelToDataSet(string path)
+        public DataTable ReadExcelToDataTablet(string path)
         {
             //连接字符串
             /* 备注：
@@ -25,9 +25,12 @@ namespace ReadAndSaveFile
 
             using (OleDbConnection conn = new OleDbConnection(connstring))
             {
+                //开启连接
                 conn.Open();
                 System.Data.DataTable sheetsName = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "Table" });//存放所有的sheet
                 DataSet set = new DataSet();
+
+
                 for (int i = 0; i < sheetsName.Rows.Count; i++)
                 {
                     string sheetName = sheetsName.Rows[i][2].ToString();
@@ -38,7 +41,8 @@ namespace ReadAndSaveFile
                     set.Tables[i].TableName = sheetName;
                 }
 
-                return set;
+                //返回第一张表
+                return set.Tables[0];
 
             }
         }
