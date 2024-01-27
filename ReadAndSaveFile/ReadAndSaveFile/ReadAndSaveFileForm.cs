@@ -101,28 +101,17 @@ namespace ReadAndSaveFile
 
                 }
 
-                else if (Path.GetExtension(ofd.FileName).Equals(".xls"))
+                else if (Path.GetExtension(ofd.FileName).Equals(".xls") || Path.GetExtension(ofd.FileName).Equals(".xlsx"))
                 {
-
-
-
                     this.dgvDataTable.DataSource = this._excelhelper.ReadExcelToDataTablet(this._filePath);
                     //在末尾列添加一列按钮
                     this.AddGridViewColumnButton();
                     //this.dgvDataTable.RowHeightChanged
                 }
-                else if (Path.GetExtension(ofd.FileName).Equals(".xlsx"))
+                else
                 {
-                    this._excelhelper.ReadExcelToDataTablet(this._filePath);
-
-                    this.dgvDataTable.DataSource = this._excelhelper.ReadExcelToDataTablet(this._filePath).Clone();
-                    //在末尾列添加一列按钮
-                    //this.AddGridViewColumnButton();
-                    ////this.dgvDataTable.RowHeightChanged
-
-
+                    MessageBox.Show("不支持的文件类型！ ");
                 }
-
             }
 
 
@@ -141,14 +130,6 @@ namespace ReadAndSaveFile
         /// <param name="e">Record additional information for clicking btnSaveFile</param>
         private void btnSaveFile_Click(object sender, EventArgs e)
         {
-            //Connection string
-            //this._connStr = "Server = .; Initial Catalog = ITLTest;user Id = sa; Password = 123456";
-            //Sql commandtext          
-            //string updateDataSql = "EXEC sp_UpdateStudentAdmissionInfoByEmail @Name = @Name, @Age = @Age, @Sex = @Sex, @Email = @Email";
-            //string saveSql = "EXEC sp_AddStudentAdmissionInfoDetial @Name = @Name, @Age = @Age, @Sex = @Sex, @Email = @Email";
-            //string overwriteSql = "EXEC sp_OverwriteStudentAdmissionInfoEmail @Name = @Name, @Age = @Age, @Sex = @Sex, @Email = @Email";
-            //int nameMaxLength = 64;
-            //int emailMaxLength = 64;
             DataGridViewButtonColumn btnOverwrite = new DataGridViewButtonColumn();
             DataGridViewButtonColumn btnSave = new DataGridViewButtonColumn();
             DataGridViewCheckBoxColumn chkSelect = new DataGridViewCheckBoxColumn();
@@ -202,76 +183,7 @@ namespace ReadAndSaveFile
 
                             this.btnSaveFile.Enabled = false; ;
                         }
-                        //else
-                        //{
-                        //    if (this._cSVFileHelper.DuplicateDataTable.Rows.Count > 0)
-                        //    {
-                        //        DialogResult dialogResult = MessageBox.Show("The data in the file and the data in the database are duplicated.Do you override duplicate data?", "File content duplication prompts", MessageBoxButtons.YesNo);
-                        //        //Duplicate data is overwritten if it exists
-                        //        if (dialogResult.Equals(DialogResult.Yes))
-                        //        {
-                        //            //save not duplicate data and update duplicate data
-                        //            if (this.UpdateDupicateAndSaveNotDuplicateData(saveSql, overwriteSql, updateDataSql))
-                        //            {
-                        //                this.UpdateInputVisibleState(false);
-                        //                this._filePath = string.Empty;
-                        //                this._cSVFileHelper.DestroyCSVContentDataTable();
-                        //                this.btnSaveFile.Enabled = false;
-                        //                this.btnReload.Enabled = false;
-                        //                this.dgvDataTable.DataSource = null;
-                        //                MessageBox.Show("Success");
-                        //            }
-                        //            else
-                        //            {
-                        //                MessageBox.Show("Fail");
-                        //            }
-                        //        }
-                        //        //Insert data that is not duplicated
-                        //        else
-                        //        {
-                        //            //Save and ovwewrite data
-                        //            if (this.UpdateDupicateAndSaveNotDuplicateData(saveSql, overwriteSql))
-                        //            {
-                        //                this._filePath = string.Empty;
-                        //                this._cSVFileHelper.DestroyCSVContentDataTable();
-                        //                this.UpdateInputVisibleState(false);
-                        //                this.btnSaveFile.Enabled = false;
-                        //                this.btnReload.Enabled = false;
-                        //                this.dgvDataTable.DataSource = null;
-                        //                MessageBox.Show("Success");
-                        //            }
-                        //            else
-                        //            {
-                        //                MessageBox.Show("Fail");
-                        //            }
-                        //        }
-                        //    }
-                        //    //Save the contents of data that is not duplicated
-                        //    else
-                        //    {
-                        //        try
-                        //        {
-                        //            //Save and ovwewrite data
-                        //            if (this.UpdateDupicateAndSaveNotDuplicateData(saveSql, overwriteSql))
-                        //            {
-                        //                this._filePath = string.Empty;
-                        //                this._cSVFileHelper.DestroyCSVContentDataTable();
-                        //                this.btnSaveFile.Enabled = false;
-                        //                this.btnReload.Enabled = false;
-                        //                this.dgvDataTable.DataSource = null;
-                        //                MessageBox.Show("Success");
-                        //            }
-                        //            else
-                        //            {
-                        //                MessageBox.Show("Fail");
-                        //            }
-                        //        }
-                        //        catch
-                        //        {
-                        //            throw;
-                        //        }
-                        //    }
-                        //}
+                 
                     }
                     //Catch custom exceptions
                     catch (ReadAndSaveFileException ex)

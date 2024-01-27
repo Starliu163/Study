@@ -50,4 +50,3 @@ D:\StarLiuStudy\Study\ReadAndSaveFile\ReadAndSaveFile\obj\Debug\ReadAndSaveFile.
 D:\StarLiuStudy\Study\ReadAndSaveFile\ReadAndSaveFile\obj\Debug\ReadAndSaveFile.csproj.CopyComplete
 D:\StarLiuStudy\Study\ReadAndSaveFile\ReadAndSaveFile\obj\Debug\ReadAndSaveFile.exe
 D:\StarLiuStudy\Study\ReadAndSaveFile\ReadAndSaveFile\obj\Debug\ReadAndSaveFile.pdb
-D:\StarLiuStudy\Study\ReadAndSaveFile\ReadAndSaveFile\obj\Debug\ReadAndSaveFile.csproj.AssemblyReference.cache
