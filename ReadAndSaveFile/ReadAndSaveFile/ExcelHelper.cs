@@ -1,16 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
+using Spire.Xls;
 namespace ReadAndSaveFile
 {
     public class ExcelHelper
     {
+
+        //public DataTable ReadExcel(string filePath)
+        //{
+        //    Workbook workbook = new Workbook();
+        //    workbook.LoadFromFile(filePath);
+        //    Worksheet worksheet = workbook.Worksheets[0];
+            
+        //    DataTable dtwork = new DataTable();
+
+        //    // 读取每一行每一列的数据
+        //    for (int row = 1; row <= worksheet.LastRow; row++)
+        //    {
+        //        //    dtwork.Columns.Add(row.ToString());
+        //        for (int col = 1; col <= worksheet.LastColumn; col++)
+        //        {
+        //            CellRange range = worksheet[row, col];
+
+        //            //dtwork.Rows.Add(col.ToString());
+        //            if (range.Value != null)
+        //            {
+        //             dtwork.Rows.Add(range.Value);
+        //            }
+        //        }
+        //    }
+
+        //    return dtwork;
+        //}
         public DataTable ReadExcelToDataTablet(string path)
         {
             //连接字符串
@@ -21,7 +42,7 @@ namespace ReadAndSaveFile
             	如果你觉得8行不够或者太多了，则只能修改注册表HKEY_LOCAL_MACHINE/Software/Microsoft/Jet/4.0/Engines/Excel/TypeGuessRows，
             	如果此值为0，则会根据所有行来判断使用什么类型，通常不建议这麽做，除非你的数据量确实比较少
             */
-            string connstring = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties='Excel 8.0;IMEX=1';";
+            string connstring = "Provider=Microsoft.ACE.OLEDB.2.0;Data Source=" + path + ";Extended Properties='Excel 8.0;IMEX=1';";
 
             using (OleDbConnection conn = new OleDbConnection(connstring))
             {
@@ -40,10 +61,8 @@ namespace ReadAndSaveFile
                     ada.Fill(set);
                     set.Tables[i].TableName = sheetName;
                 }
-
                 //返回第一张表
                 return set.Tables[0];
-
             }
         }
     }

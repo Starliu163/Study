@@ -103,7 +103,7 @@ namespace ReadAndSaveFile
 
                 else if (Path.GetExtension(ofd.FileName).Equals(".xls") || Path.GetExtension(ofd.FileName).Equals(".xlsx"))
                 {
-                    this.dgvDataTable.DataSource = this._excelhelper.ReadExcelToDataTablet(this._filePath);
+                    this.dgvDataTable.DataSource = this._excelhelper.ReadExcel(this._filePath);
                     //在末尾列添加一列按钮
                     this.AddGridViewColumnButton();
                     //this.dgvDataTable.RowHeightChanged
